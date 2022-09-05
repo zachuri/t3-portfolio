@@ -61,8 +61,10 @@ function Navbar() {
 
 			<div
 				className={
-          // make hidden when above medium screen
-					nav ? "md:hidden fixed left-0 top-0 w-full h-screen bg-black/70" : ""
+					// make hidden when above medium screen
+					nav
+						? "md:hidden fixed left-0 top-0 w-full h-screen bg-black/70"
+						: ""
 				}
 			>
 				{/* This div will display the side bar menu */}
@@ -94,6 +96,7 @@ function Navbar() {
 						{/* Div for description  */}
 						<div className="border-b border-gray-300 my-4">
 							<p className="w-[85%] md:w[90%] py-4">
+								{/* // eslint-disable-next-line react/no-unescaped-entities */}
 								Let's build something legendary together
 							</p>
 						</div>
