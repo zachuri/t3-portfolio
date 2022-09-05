@@ -8,6 +8,7 @@ function About() {
 					<p>About</p>
 					<h2>Who am I</h2>
 					<p>//I am not your normal developer</p>
+					<p>//I am not your normal developer</p>
 				</div>
 				<div></div>
 			</div>
