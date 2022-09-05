@@ -1,11 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from "react-icons/ai";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 
 function Navbar() {
+	const [nav, setNav] = useState<boolean>(false);
+
+	const handleNav = () => {
+		setNav(!nav);
+	};
+
 	return (
 		<div className="fixed w-full h-20 shadow-xl z-[100">
 			<div className="flex justify-between items-center w-full h-full px-2">
@@ -17,7 +23,6 @@ function Navbar() {
 				/>
 
 				{/* For Medium and up display  */}
-
 				<div>
 					{/* show hidden when mobile/ above medium flex */}
 					<ul className="hidden md:flex">
@@ -45,7 +50,7 @@ function Navbar() {
 
 					{/* For mobile hamburger menu*/}
 					{/* anything above hidden medium this hidden */}
-					<div className="md:hidden">
+					<div onClick={handleNav} className="md:hidden">
 						<AiOutlineMenu size={25} />
 					</div>
 				</div>
@@ -53,11 +58,23 @@ function Navbar() {
 
 			{/* Sidebar Drawer Menu */}
 			{/* This div will display the background opacity */}
-			<div className="fixed left-0 top-0 w-full h-screen bg-black/70">
+
+			<div
+				className={
+          // make hidden when above medium screen
+					nav ? "md:hidden fixed left-0 top-0 w-full h-screen bg-black/70" : ""
+				}
+			>
 				{/* This div will display the side bar menu */}
-				<div className="fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] ease-in duration-500">
+				<div
+					className={
+						nav
+							? "fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500"
+							: "fixed left-[-100%] top-0 w-[75%] p-10 ease-in duration-500"
+					}
+				>
 					{/* Put it in a container where all all the items will be in the middle */}
-					<div className="container mx-auto h-screen p-12">
+					<div>
 						{/* Div for Logo and Exit */}
 						<div className="flex w-full items-center justify-between">
 							<Image
@@ -66,7 +83,10 @@ function Navbar() {
 								width="87"
 								height="35"
 							/>
-							<div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer">
+							<div
+								onClick={handleNav}
+								className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer"
+							>
 								<AiOutlineClose size={25} />
 							</div>
 						</div>
