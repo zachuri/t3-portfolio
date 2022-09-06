@@ -33,7 +33,7 @@ function About() {
 						Check out some of my latest projects
 					</p>
 				</div>
-				<div className="w-full h-auto m-auto shadow-xl shadow-gray-400 flex items-center justify-center p-4 hover: scale-105 ease-in duration-300">
+				<div className="w-full h-auto m-auto shadow-xl shadow-gray-400 flex items-center justify-center p-4 hover:scale-105 ease-in duration-300">
 					<Image
 						className="rounded-xl"
 						src="/assets/github-profile-pic.jpeg"
