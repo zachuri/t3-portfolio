@@ -4,10 +4,29 @@ import React, { useEffect, useState } from "react";
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from "react-icons/ai";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/bs";
+import { useRouter } from "next/router";
 
 function Navbar() {
 	const [nav, setNav] = useState<boolean>(false);
 	const [shadow, setShadow] = useState<boolean>(false);
+	const [navBg, setNavBg] = useState<string>("#ecf0f3");
+	const [linkColor, setLinkColor] = useState<string>("#1f2937");
+	const router = useRouter();
+
+	useEffect(() => {
+		if (
+			router.asPath === "/property_finder" ||
+			router.asPath === "/netflix_app" ||
+			router.asPath === "/crypto_app" ||
+			router.asPath === "/twitch_clone"
+		) {
+			setNavBg("transparent");
+			setLinkColor("#f8f8f8");
+		} else {
+			setNavBg("#ecf0f3");
+			setLinkColor("#1f2937");
+		}
+	}, [router]);
 
 	const handleNav = () => {
 		setNav(!nav);
@@ -24,6 +43,7 @@ function Navbar() {
 
 	return (
 		<div
+			style={{ backgroundColor: `${navBg}` }}
 			className={
 				shadow
 					? "fixed w-full h-20 shadow-xl z-[100]"
@@ -43,7 +63,7 @@ function Navbar() {
 				{/* For Medium and up display  */}
 				<div>
 					{/* show hidden when mobile/ above medium flex */}
-					<ul className="hidden md:flex">
+					<ul style={{ color: `${linkColor}` }} className="hidden md:flex">
 						<Link href="/#home">
 							<li className="ml-10 text-sm uppercase hover:border-b">
 								Home
@@ -57,6 +77,11 @@ function Navbar() {
 						<Link href="/#skills">
 							<li className="ml-10 text-sm uppercase hover:border-b">
 								Skills
+							</li>
+						</Link>
+						<Link href="/#projects">
+							<li className="ml-10 text-sm uppercase hover:border-b">
+								projects
 							</li>
 						</Link>
 						<Link href="/#contact">
@@ -123,19 +148,54 @@ function Navbar() {
 						<div className="py-4 flex flex-col">
 							<ul>
 								<Link href="/#home">
-									<li onClick={() => {setNav(false)}} className="py-4 text-sm">Home</li>
+									<li
+										onClick={() => {
+											setNav(false);
+										}}
+										className="py-4 text-sm"
+									>
+										Home
+									</li>
 								</Link>
 								<Link href="/#about">
-									<li onClick={() => {setNav(false)}} className="py-4 text-sm">About</li>
+									<li
+										onClick={() => {
+											setNav(false);
+										}}
+										className="py-4 text-sm"
+									>
+										About
+									</li>
 								</Link>
 								<Link href="/#skills">
-									<li onClick={() => {setNav(false)}} className="py-4 text-sm">Skills</li>
+									<li
+										onClick={() => {
+											setNav(false);
+										}}
+										className="py-4 text-sm"
+									>
+										Skills
+									</li>
 								</Link>
 								<Link href="/#projects">
-									<li onClick={() => {setNav(false)}} className="py-4 text-sm">Projects</li>
+									<li
+										onClick={() => {
+											setNav(false);
+										}}
+										className="py-4 text-sm"
+									>
+										Projects
+									</li>
 								</Link>
 								<Link href="/#contact">
-									<li onClick={() => {setNav(false)}} className="py-4 text-sm">Contact</li>
+									<li
+										onClick={() => {
+											setNav(false);
+										}}
+										className="py-4 text-sm"
+									>
+										Contact
+									</li>
 								</Link>
 							</ul>
 
