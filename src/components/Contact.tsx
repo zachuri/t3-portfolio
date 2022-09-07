@@ -3,13 +3,13 @@ import React from "react";
 import { AiOutlineMail } from "react-icons/ai";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/bs";
-import { HiOutlineChevronDoubleUp } from 'react-icons/hi';
+import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 import Link from "next/link";
 import ContactImg from "/public/assets/contact.jpg";
 
 function Contact() {
 	return (
-		<div className="w-full lg:h-screen">
+		<div id="contact" className="w-full lg:h-screen">
 			<div className="max-w-[1240px] m-auto px-2 py-16 w-full">
 				<p className="text-xl tracking-widest uppercase text-[#5651e5]">
 					Contact
