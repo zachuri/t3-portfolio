@@ -35,9 +35,9 @@ function Projects() {
 							.replace("/assets/projects/", "")
 							.replace(".jpg", "");
 						const projectUrl = image
-							.replace("_app", "")
-							.replace("_finder", "")
-							.replace("_clone", "");
+							.replace("/assets/projects/", "")
+							.replace(".jpg", "");
+
 						return (
 							<ProjectItem
 								title={title}
