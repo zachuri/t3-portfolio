@@ -20,14 +20,17 @@ function ProjectItem({ title, backgroundImg, projectUrl }: projectProps) {
 					className="rounded-xl group-hover:opacity-10"
 					src={backgroundImg}
 					alt="/"
+					width="1920"
+					height="1080"
 				></Image>
 
 				{/* center absoulte elements (placed in the center) */}
 				<div className="hidden group-hover:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-					<h3 className="text-2xl text-white tracking-wider text-center">
+					{/* <h3 className="uppercase text-2xl text-white tracking-wider text-center"> */}
+					<h3 className="pb-4 uppercase text-2xl text-white tracking-wider text-center">
 						{title}
 					</h3>
-					<p className="pb-4 pt-2 text-white text-center">React JS</p>
+					{/* <p className="pb-4 pt-2 text-white text-center">React JS</p> */}
 					<Link href={projectUrl}>
 						<p className="text-center py-3 rounded-lg bg-white text-gray-700 font-bold text-lg cursor-pointer">
 							More Info
