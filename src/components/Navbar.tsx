@@ -1,19 +1,35 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from "react-icons/ai";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 
 function Navbar() {
 	const [nav, setNav] = useState<boolean>(false);
+	const [shadow, setShadow] = useState<boolean>(false);
 
 	const handleNav = () => {
 		setNav(!nav);
 	};
 
+	useEffect(() => {
+		const handleShadow = () => {
+			// when scroll is greater than 90 pixels -> show shadow
+			window.scrollY >= 90 ? setShadow(true) : setShadow(false);
+		};
+
+		window.addEventListener("scroll", handleShadow);
+	}, []);
+
 	return (
-		<div className="fixed w-full h-20 shadow-xl z-[100">
+		<div
+			className={
+				shadow
+					? "fixed w-full h-20 shadow-xl z-[100]"
+					: "fixed w-full h-20  z-[100]"
+			}
+		>
 			<div className="flex justify-between items-center w-full h-full px-2">
 				<Image
 					src="/assets/navLogo.png"
