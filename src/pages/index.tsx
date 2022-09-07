@@ -4,6 +4,7 @@ import Main from "../components/Main";
 import Navbar from "../components/Navbar";
 import About from "../components/About";
 import Skills from "../components/Skills";
+import Projects from "../components/Projects";
 
 const Home: NextPage = () => {
 	return (
@@ -17,6 +18,7 @@ const Home: NextPage = () => {
 			<Main />
 			<About />
 			<Skills />
+			<Projects />
 		</>
 	);
 };
